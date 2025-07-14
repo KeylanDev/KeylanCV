@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>About</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-global.css">
+  <style>
+    /* Style général de la barre */
+    #loading-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: #0f0c29;
+      overflow: hidden;
+      z-index: 9999;
+      display: none;
+      box-shadow: 0 0 10px #a100ff, 0 0 20px #a100ff, 0 0 40px #a100ff;
+    }
+
+    /* Animation du texte "UNREAL" */
+    #loading-bar .text {
+      position: absolute;
+      white-space: nowrap;
+      font-family: monospace;
+      font-size: 12px;
+      color: #ffffff;
+      text-shadow: 0 0 5px #a100ff, 0 0 10px #a100ff;
+      animation: scroll-text 0.5s linear infinite;
+    }
+
+    @keyframes scroll-text {
+      0% {
+        left: -100%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+
+    /* Style de la boîte d'annonce */
+    #image-annonce {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 200px;
+      height: 120px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(161, 0, 255, 0.6);
+      border: 2px solid #a100ff;
+      background-color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+    }
+
+    #image-annonce img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <!-- Boîte image -->
+  <div id="image-annonce">
+    <img src="https://i.postimg.cc/13CmZx6B/Screenshot-2025-07-14-175129.png" alt="Annonce">
+  </div>
+
+  <!-- Barre de chargement -->
+  <div id="loading-bar">
+    <div class="text">UNREAL&nbsp;&nbsp;UNREAL&nbsp;&nbsp;UNREAL&nbsp;&nbsp;UNREAL</div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo"></div>
+      <div class="links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="game.html">Game</a>
+      </div>
+      <div class="gif-container">
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGNnbWVvZ21uc3o0NmY5dHlncWR6ZzljbzB1NXM4bXNpZzVhc29mbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Kc8wPyRaqlx5KO1ben/giphy.gif" alt="GIF" class="nav-gif">
+      </div>
+    </div>
+  </nav>
+
+  <!-- Game Section -->
+  <section id="game">
+    <div class="search-container">
+      <input type="text" placeholder="Rechercher un jeu..." class="search-bar" />
+    </div>
+  </section>
+<!-- Section Annonce Liminalvibe -->
+  <section id="liminal-annonce">
+    <div class="liminal-box">
+      <p><strong>Prochainement : LiminalVibe</strong><br>
+      Un jeu des backrooms développé sous Unreal Engine. Un jeu sans but, juste pour ressentir le vide, la nostalgie et l'étrangeté du liminal.</p>
+    "LiminalVibe Teaser"
+    </div>
+  </section>
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="cursor"></div>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    window.addEventListener('mousemove', (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    });
+
+    document.querySelector('.search-bar').addEventListener('input', function() {
+      const query = this.value;
+      fetch(`search.php?q=${encodeURIComponent(query)}`)
+        .then(res => res.json())
+        .then(data => {
+          console.log(data); // Affiche les noms des jeux trouvés
+          // Tu peux afficher les résultats dans une liste sous la barre
+        });
+    });
+
+    const links = document.querySelectorAll("a[href]");
+    const bar = document.getElementById("loading-bar");
+
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        const target = link.getAttribute("target");
+        if (!target || target === "_self") {
+          e.preventDefault();
+          bar.style.display = "block";
+          setTimeout(() => {
+            window.location = link.href;
+          }, 500); // 0.5 seconde
+        }
+      });
+    });
+
+    // Masquer la barre après le chargement de la page
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        bar.style.display = "none";
+      }, 100);
+    });
+  </script>
+</body>
+</html>

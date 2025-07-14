@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>About</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-global.css">
+  <style>
+    /* Style général de la barre */
+    #loading-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: #0f0c29;
+      overflow: hidden;
+      z-index: 9999;
+      display: none;
+      box-shadow: 0 0 10px #a100ff, 0 0 20px #a100ff, 0 0 40px #a100ff;
+    }
+    
+    /* Animation du texte "UNREAL" */
+    #loading-bar .text {
+      position: absolute;
+      white-space: nowrap;
+      font-family: monospace;
+      font-size: 12px;
+      color: #ffffff;
+      text-shadow: 0 0 5px #a100ff, 0 0 10px #a100ff;
+      animation: scroll-text 0.5s linear infinite;
+    }
+    
+    @keyframes scroll-text {
+      0% {
+        left: -100%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+
+    /* Style de la boîte d'annonce */
+    #image-annonce {
+      position: fixed; 
+      top: 20px;
+      right: 20px;
+      width: 200px;
+      height: 120px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(161, 0, 255, 0.6);
+      border: 2px solid #a100ff;
+      background-color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+    }
+
+    #image-annonce img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>      
+</head>
+<body>
+  <!-- Boîte image -->
+  <div id="image-annonce">
+    <img src="https://favim.com/pd/s11/orig/7/771/7715/77151/hood-money-trap-Favim.com-7715100.jpg" alt="Annonce">
+  </div>
+
+  <!-- Barre de chargement -->
+  <div id="loading-bar">
+    <div class="text">UNREAL&nbsp;&nbsp;UNREAL&nbsp;&nbsp;UNREAL&nbsp;&nbsp;UNREAL</div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo"></div>
+      <div class="links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="game.html">Game</a>
+      </div>
+      <div class="gif-container">
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGNnbWVvZ21uc3o0NmY5dHlncWR6ZzljbzB1NXM4bXNpZzVhc29mbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Kc8wPyRaqlx5KO1ben/giphy.gif" alt="GIF" class="nav-gif">
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>Discord</h2>
+    <a href="https://discord.gg/tQpZTpcm">
+        <button>Join 𝕽𝖚𝖗𝖊𝖆𝖑 𝕾𝖙𝖚𝖉𝖎𝖔 discord</button>
+    </a>
+    <div class="gif-box">
+      <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnI5dm5zbHFjazQwanhxbWhpejc2emR4dnVodWl3aWJxenMyOXJ1MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9dHM/f6m4gKFfYdwBIBLG7c/giphy.gif" alt="Mon GIF">
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="cursor"></div>
+
+    <script>
+      const cursor = document.getElementById('cursor');
+      window.addEventListener('mousemove', (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+      });
+    </script>
+
+    <script>
+      const links = document.querySelectorAll("a[href]");
+      const bar = document.getElementById("loading-bar");
+    
+      links.forEach(link => {
+        link.addEventListener("click", function (e) {
+          const target = link.getAttribute("target");
+          if (!target || target === "_self") {
+            e.preventDefault();
+            bar.style.display = "block";
+            setTimeout(() => {
+              window.location = link.href;
+            }, 500); // 0.5 seconde
+          }
+        });
+      });
+    
+      // Masquer la barre après le chargement de la page
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          bar.style.display = "none";
+        }, 100);
+      });
+    </script>  
+    <style>
+  #fps-section {
+    background-color: #000;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+  }
+
+  .fps-description {
+    max-width: 700px;
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 30px;
+    background: rgba(20, 20, 20, 0.85);
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(161, 0, 255, 0.3);
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .fps-download-box a {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #6a0dad;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(106, 13, 173, 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .fps-download-box a:hover {
+    background: #7e22ce;
+    box-shadow: 0 7px 20px rgba(126, 34, 206, 0.7);
+  }
+
+  .fps-download-box a:active {
+    background: #5709a1;
+    transform: translateY(2px);
+  }
+</style>
+
+<section id="fps-section">
+  <div class="fps-description">
+    <strong>Krussia FPS Booster</strong> est une application que j’ai créée et développée pour améliorer les performances de votre PC.
+    Elle optimise les ressources et booste les FPS en un clic — idéale pour le gaming ou les tâches lourdes.
+  </div>
+    </section>
+    <html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Téléchargement</title>
+<style>
+  /* Conteneur pour centrer horizontalement */
+  .container {
+    width: 100%;
+    padding: 40px 0;
+    text-align: center;
+    background: #f0f0f5; /* facultatif, adapte à ta page */
+  }
+
+  .download-box {
+    display: inline-block;
+    padding: 20px 40px;
+    background: #6a0dad;       /* violet */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(106, 13, 173, 0.5);
+    transition: background 0.3s, box-shadow 0.3s;
+    user-select: none;
+  }
+  .download-box:hover {
+    background: #7e22ce;
+    box-shadow: 0 7px 20px rgba(126, 34, 206, 0.7);
+  }
+  .download-box:active {
+    background: #5709a1;
+    box-shadow: 0 3px 10px rgba(87, 9, 161, 0.8);
+    transform: translateY(2px);
+  }
+</style>
+</head>
+<body>
+<section id="fps-section">
+  <div class="fps-download-box">
+    <a href="/downloads/krussia_fps_booster.exe" download>
+      Télécharger Krussia FPS Booster
+    </a>
+  </div>
+</section>
+</body>
+</html>
