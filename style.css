@@ -1,0 +1,644 @@
+
+/* Police Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #121212;
+    color: white;
+    overflow-x: hidden;
+}
+/* Navbar fixe et lisse */
+nav {
+    width: 100%;
+    height: 10vh;
+    background-color: rgba(18, 18, 18, 0.9);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+}
+
+.logo {
+    color: #753aff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px #753aff;
+}
+
+/* Menu déroulant animé */
+.hamburg {
+    display: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.dropdown {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1b1b1b;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+}
+
+.dropdown a {
+    padding: 15px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.dropdown a:hover {
+    background: #753aff;
+}
+
+/* Sections avec effets parallax */
+section {
+    padding: 80px 10%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-attachment: fixed;
+}
+
+#home {
+    background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExajBxNjdxNmFhMXBteGMwZm4xcXNoMGo5dnJ6czlkN3F4dDV1cXpheCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEhmGgRW9AMzkqbnO/giphy.gif') no-repeat center center/cover;
+}
+
+section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 1.2s ease;
+}
+
+/* Effet de zoom sur l'image */
+.main-container .image {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(86, 75, 183, 0.7);
+    transition: transform 0.4s;
+}
+
+.main-container .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-container .image:hover {
+    transform: scale(1.1);
+}
+
+/* Bouton avec effet 3D */
+button {
+    padding: 15px 30px;
+    font-size: 1rem;
+    color: white;
+    background-color: #753aff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(91, 75, 183, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+button:hover {
+    transform: scale(1.05) rotateX(15deg);
+    box-shadow: 0 8px 20px rgba(77, 75, 183, 0.8);
+}
+
+/* Boîtes de compétences avec effet de croissance */
+.boxes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.box {
+    width: 150px;
+    height: 150px;
+    background-color: #333;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.box:hover {
+    transform: scale(1.1);
+    background-color: #753aff;
+}
+
+/* Animation d'apparition */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Responsive pour mobile */
+    .links {
+        display: none;
+    }
+
+    .hamburg {
+        display: block;
+    }
+
+    .dropdown {
+        display: flex;
+    }
+
+    section {
+        padding: 40px;
+    }
+
+    .main-container .image {
+        width: 70%;
+        height: auto;
+    }
+}
+/* Navbar Link Styling */
+nav .links a {
+    font-size: 1.1rem;
+    color: #d1d1d1; /* Couleur gris clair pour les liens */
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+nav .links a:hover {
+    color: #fff; /* Texte blanc au survol */
+    background-color: #753aff; /* Fond rouge au survol */
+    border-radius: 5px;
+    padding: 8px 15px;
+    text-decoration: underline; /* Soulignement au survol */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Ajout d'une transition fluide pour les liens */
+nav .links a:active {
+    transform: scale(0.98);
+}
+/* Style pour les icônes des réseaux sociaux */
+.social-links a {
+    color: #d1d1d1; /* Couleur gris clair pour les icônes */
+    font-size: 2rem; /* Taille des icônes */
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Transition fluide */
+}
+
+/* Effet au survol des icônes */
+.social-links a:hover {
+    color: #753aff; /* Couleur rouge au survol */
+    transform: scale(1.1); /* Agrandissement de l'icône au survol */
+}
+
+/* Effet au clic sur l'icône */
+.social-links a:active {
+    transform: scale(0.98); /* Légère réduction lors du clic */
+}
+.github-link button {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.github-link button:hover {
+    background-color: #753aff;
+}
+
+.github-link i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+#about i.fa-github {
+    font-size: 3rem;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+#about i.fa-github:hover {
+    color: #753aff;
+}
+/* Skills Section CSS */
+#skills .boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 45%; /* Ajustez la largeur selon le besoin */
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.box i {
+    font-size: 2rem; /* Taille de l'icône */
+    margin-right: 15px;
+    color: #753aff; /* Couleur de l'icône */
+}
+
+.box:hover {
+    transform: translateY(-5px); /* Effet au survol */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+.box div {
+    font-size: 1.2rem;
+}
+
+.box i:hover {
+    color: #753aff; /* Changer la couleur de l'icône au survol */
+}
+nav {
+    background-color: #111;
+    color: white;
+    padding: 20px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.links a.active {
+    font-weight: bold;
+}
+
+.gif-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-gif {
+    width: 50px; /* GIF un peu plus gros */
+    height: auto;
+    margin-left: 10px; /* un peu d'espace entre les liens et le GIF */
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #0f0f0f;
+    color: white;
+  }
+  
+  nav {
+    background-color: #1a1a1a;
+    padding: 15px;
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .links a {
+    margin-left: 15px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .links a:hover {
+    text-decoration: underline;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: white;
+    font-family: sans-serif;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden; /* ✅ Autorise le scroll vertical */
+  }
+  
+  
+  /* Styles communs */
+  .gif-corner {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background-image: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnJnbTh6NmpxOWpnZjNva3pmcjJ1bTkyeG8xOGg2bWdxbHk4NHgxNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/w6etSl85COxddXrAJm/giphy.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 9999;
+  }
+  
+  /* Coin haut gauche */
+  .top-left {
+    top: 0;
+    left: 0;
+  }
+  
+  /* Coin haut droit */
+  .top-right {
+    top: 0;
+    right: 0;
+  }
+  
+  /* Coin bas gauche */
+  .bottom-left {
+    bottom: 0;
+    left: 0;
+  }
+  
+  /* Coin bas droit */
+  .bottom-right {
+    bottom: 0;
+    right: 0;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    background: black url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnJnbTh6NmpxOWpnZjNva3pmcjJ1bTkyeG8xOGg2bWdxbHk4NHgxNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/w6etSl85COxddXrAJm/giphy.gif") repeat;
+    background-size: 100px 100px; /* ajuste la taille si nécessaire */
+    color: white;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between; /* sépare les deux côtés */
+    align-items: center;
+    padding: 0 30px;
+    background-color: #1a1a1a;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .logo {
+    color: #8b5cf6; /* violet par exemple */
+    font-family: 'Unreal', sans-serif;
+  }
+  body {
+    cursor: none;
+  }
+  
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #a200ff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px #a200ff, 0 0 20px #a200ff, 0 0 40px #a200ff;
+    transition: transform 0.05s ease;
+    mix-blend-mode: lighten;
+  }
+/* Désactive le curseur natif dans tout le body */
+body {
+    cursor: none;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #111;
+  }
+  
+  /* Applique 'cursor: none' aux éléments interactifs */
+  a, button, input, textarea, select, .custom-cursor {
+    cursor: none;
+  }
+  
+  /* Curseur personnalisé */
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #a200ff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px #a200ff, 0 0 20px #a200ff, 0 0 40px #a200ff;
+    transition: transform 0.05s ease;
+    mix-blend-mode: lighten;
+  }
+  .search-container {
+    display: flex;
+    justify-content: center; /* centre horizontalement */
+    margin-top: 100px;       /* espace depuis le haut de la page */
+  }  
+  .search-bar {
+    padding: 12px 20px;
+    width: 300px;
+    border: 2px solid #a600ff;
+    border-radius: 30px;
+    background-color: #0d0d0d;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease;
+    box-shadow: 0 0 10px #000000, 0 0 20px #000000 inset;
+  }
+  
+  .search-bar::placeholder {
+    color: #b96eff;
+  }
+  
+  .search-bar:focus {
+    box-shadow: 0 0 20px #000000, 0 0 40px #000000 inset;
+    border-color: #000000;
+  }
+  /* Scrollbar personnalisée (WebKit) */
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #000000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000000, 0 0 20px #000000;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #000000;
+    box-shadow: 0 0 12px #000000, 0 0 24px #000000;
+  }
+  body {
+    margin: 0;
+    background-color: #000000;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    min-height: 100vh;
+  }
+  #image-annonce {
+    position: fixed;
+    top: 20px;
+    right: 20px; /* <-- ici on remplace left par right */
+    width: 200px;
+    height: 120px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    border: 2px solid #000000;
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  }
+  #fps-section {
+  background-color: transparent; /* ou supprime complètement si hérite du fond */
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.fps-download-box {
+  background: rgba(0, 0, 0, 0.6); /* fond noir semi-transparent */
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(161, 0, 255, 0.3);
+  text-align: center;
+}
+
+.fps-download-box a {
+  display: inline-block;
+  padding: 15px 30px;
+  background: #6a0dad;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(106, 13, 173, 0.5);
+  transition: all 0.3s ease;
+}
+.fps-download-box a:hover {
+  background: #7e22ce;
+  box-shadow: 0 7px 20px rgba(126, 34, 206, 0.7);
+}
+.fps-download-box a:active {
+  background: #5709a1;
+  transform: translateY(2px);
+}
+@media screen and (max-width: 768px) {
+  nav .nav-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-container .links {
+    margin-top: 10px;
+  }
+
+  .nav-container .gif-container img {
+    width: 60px;
+  }
+
+  .fps-description,
+  .liminal-box {
+    padding: 20px;
+    font-size: 16px;
+  }
+
+  .fps-download-box a {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  #image-annonce {
+    top: 10px;
+    right: 10px;
+    width: 140px;
+    height: 80px;
+  }
+
+  .liminal-box img {
+    width: 100%;
+    height: auto;
+  }
+
+  .gif-box img {
+    width: 90%;
+    height: auto;
+  }
+
+  #fps-section, #liminal-annonce {
+    padding: 40px 10px;
+  }
+}

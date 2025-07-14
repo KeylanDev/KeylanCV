@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝖀𝖓𝖗𝖊𝖆𝖑</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS commun : barre de chargement + boîte image -->
+    <link rel="stylesheet" href="style-global.css">
+    <!-- Lien vers Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+      /* Style général de la barre */
+      #loading-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: #0f0c29;
+        overflow: hidden;
+        z-index: 9999;
+        display: none;
+        box-shadow: 0 0 10px #a100ff, 0 0 20px #a100ff, 0 0 40px #a100ff;
+      }
+      
+      /* Animation du texte "UNREAL" */
+      #loading-bar .text {
+        position: absolute;
+        white-space: nowrap;
+        font-family: monospace;
+        font-size: 12px;
+        color: #ffffff;
+        text-shadow: 0 0 5px #a100ff, 0 0 10px #a100ff;
+        animation: scroll-text 0.5s linear infinite;
+      }
+      
+      @keyframes scroll-text {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+    </style>
+</head>
+<body>
+  <!-- Barre de chargement -->
+  <div id="loading-bar">
+    <div class="text">UNREAL&nbsp;&nbsp;UNREAL&nbsp;&nbsp;UNREAL&nbsp;&nbsp;UNREAL</div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav>
+    <div class="nav-container">
+        <div class="logo"></div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="game.html">Game</a>
+        </div>
+        <div class="gif-container">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGNnbWVvZ21uc3o0NmY5dHlncWR6ZzljbzB1NXM4bXNpZzVhc29mbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Kc8wPyRaqlx5KO1ben/giphy.gif" alt="GIF" class="nav-gif">
+        </div>
+    </div>
+  </nav>
+
+  <!-- Main Section -->
+  <section id="home">
+    <div class="main-container">
+        <div class="image">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3N2OXJ3N2JyaXNnc252OW5kanp4MDQ0bWh2YXJlM3VoYzBldW0yeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l378c0wyFB37KI7cs/giphy.gif" alt="Image">
+        </div>
+        <div class="content">
+            <h1>Hey, I'm 𝖀𝖓𝖗𝖊𝖆𝖑</h1>
+            <h2>⚫his is not real, it’s just a dream, Wake up⚫</h2>
+            <h5>──⚪───────────────────────────────────────────</h5>
+            <h6>|◄▐▐ ►|⠀ ───○─ 🔊 ⠀₀:₁₁ / ₂:₄₄ ⠀ᴴᴰ ⚙ ❐ ⊏⊐</h6>
+            <p>Web Developer and Security Expert</p>
+            <a href="https://i.postimg.cc/bwf0P1dx/Kais-MEDEREGNAROU.png" target="_blank">
+                <button>Download CV</button>
+            </a>
+        </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Created by <a href="#"> 🎆𝖀𝖓𝖗𝖊𝖆𝖑🎆 alias Keylan</a> &#169;2024 All Rights Reserved</span>
+  </footer>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="cursor"></div>
+  <script>
+    const cursor = document.getElementById('cursor');
+    window.addEventListener('mousemove', (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    });
+  </script>
+
+  <script>
+    const links = document.querySelectorAll("a[href]");
+    const bar = document.getElementById("loading-bar");
+
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        const target = link.getAttribute("target");
+        if (!target || target === "_self") {
+          e.preventDefault();
+          bar.style.display = "block";
+          setTimeout(() => {
+            window.location = link.href;
+          }, 500); // 0.5 seconde
+        }
+      });
+    });
+
+    // Masquer la barre après le chargement de la page
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        bar.style.display = "none";
+      }, 100);
+    });
+  </script>    
+</body>
+</html>
