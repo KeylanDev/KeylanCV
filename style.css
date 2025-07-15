@@ -642,3 +642,19 @@ body {
     padding: 40px 10px;
   }
 }
+/* Animation rotation + agrandissement */
+@keyframes rotateZoom {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.1);
+  }
+}
+
+/* Appliquer l'effet sur survol */
+#image-annonce:hover {
+  animation: rotateZoom 1s ease-in-out;
+  animation-fill-mode: forwards;
+  cursor: pointer;
+}
