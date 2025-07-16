@@ -2,17 +2,13 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Krussia</title>
-
-  <!-- Styles externes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - 𝖀𝖓𝖗𝖊𝖆𝖑</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="style-global.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-  <!-- CSS interne -->
   <style>
-    /* Barre de chargement */
     #loading-bar {
       position: fixed;
       top: 0;
@@ -26,28 +22,19 @@
       box-shadow: 0 0 10px #a100ff, 0 0 20px #a100ff, 0 0 40px #a100ff;
     }
 
-    .loader-container {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 10000;
+    #loading-bar .text {
+      position: absolute;
+      white-space: nowrap;
+      font-family: monospace;
+      font-size: 12px;
+      color: #ffffff;
+      text-shadow: 0 0 5px #a100ff, 0 0 10px #a100ff;
+      animation: scroll-text 0.5s linear infinite;
     }
 
-    .rotating-text {
-      font-size: 32px;
-      font-weight: bold;
-      color: white;
-      animation: rotate 2s linear infinite;
-    }
-
-    @keyframes rotate {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
+    @keyframes scroll-text {
+      0% { left: -100%; }
+      100% { left: 100%; }
     }
 
     nav {
@@ -56,9 +43,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
     }
 
     .nav-container .links a {
@@ -72,90 +56,94 @@
       height: 40px;
     }
 
-    #image-annonce {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 200px;
-      height: 120px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 0 15px rgba(161, 0, 255, 0.6);
-      border: 2px solid #a100ff;
-      background-color: #1a1a1a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10000;
-    }
-
-    #image-annonce img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
     body {
       margin: 0;
       font-family: sans-serif;
       background: black;
       color: white;
     }
+
+    section#about {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    section#about h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background: #6a0dad;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .gif-box img {
+      width: 300px;
+      margin-top: 30px;
+    }
   </style>
 </head>
 <body>
 
   <!-- Barre de chargement -->
-  <div id="loading-bar"></div>
-
-  <!-- Loader central -->
-  <div class="loader-container">
-    <div class="rotating-text">UNREAL</div>
-  </div>
-
-  <!-- Boîte image annonce -->
-  <div id="image-annonce">
-    <img src="https://favim.com/pd/s11/orig/7/771/7715/77151/hood-money-trap-Favim.com-7715100.jpg" alt="Annonce" />
+  <div id="loading-bar">
+    <div class="text">UNREAL&nbsp;&nbsp;UNREAL&nbsp;&nbsp;UNREAL&nbsp;&nbsp;UNREAL</div>
   </div>
 
   <!-- Navigation -->
   <nav>
     <div class="nav-container">
-      <div class="logo">KRUSSIA</div>
+      <div class="logo"></div>
       <div class="links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="game.html">Game</a>
       </div>
       <div class="gif-container">
-        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGNnbWVvZ21uc3o0NmY5dHlncWR6ZzljbzB1NXM4bXNpZzVhc29mbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Kc8wPyRaqlx5KO1ben/giphy.gif" alt="GIF" class="nav-gif" />
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGNnbWVvZ21uc3o0NmY5dHlncWR6ZzljbzB1NXM4bXNpZzVhc29mbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Kc8wPyRaqlx5KO1ben/giphy.gif" alt="GIF" class="nav-gif">
       </div>
     </div>
   </nav>
 
-  <!-- Section About -->
+  <!-- Contenu About -->
   <section id="about">
     <h2>Discord</h2>
-    <a href="https://discord.gg/tQpZTpcm">
+    <a href="https://discord.gg/tQpZTpcm" target="_blank">
       <button>Join 𝕽𝖚𝖗𝖊𝖆𝖑 𝕾𝖙𝖚𝖉𝖎𝖔 discord</button>
     </a>
+    <div class="gif-box">
+      <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnI5dm5zbHFjazQwanhxbWhpejc2emR4dnVodWl3aWJxenMyOXJ1MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9dHM/f6m4gKFfYdwBIBLG7c/giphy.gif" alt="GIF Discord">
+    </div>
   </section>
 
-  <!-- JS pour animation barre chargement -->
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="cursor"></div>
+
   <script>
-    const links = document.querySelectorAll("a[href]");
+    const cursor = document.getElementById('cursor');
+    window.addEventListener('mousemove', (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    });
+  </script>
+
+  <script>
+    const links = document.querySelectorAll("a[href]:not([target='_blank'])");
     const bar = document.getElementById("loading-bar");
 
     links.forEach(link => {
       link.addEventListener("click", function (e) {
-        const target = link.getAttribute("target");
-        if (!target || target === "_self") {
-          e.preventDefault();
-          bar.style.display = "block";
-          setTimeout(() => {
-            window.location = link.href;
-          }, 500);
-        }
+        e.preventDefault();
+        bar.style.display = "block";
+        setTimeout(() => {
+          window.location = link.href;
+        }, 500);
       });
     });
 
@@ -165,5 +153,6 @@
       }, 100);
     });
   </script>
+
 </body>
 </html>
