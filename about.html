@@ -72,11 +72,56 @@
     <img src="https://favim.com/pd/s11/orig/7/771/7715/77151/hood-money-trap-Favim.com-7715100.jpg" alt="Annonce">
   </div>
 
-  <!-- Barre de chargement -->
-  <div id="loading-bar">
-    <div class="text">UNREAL&nbsp;&nbsp;UNREAL&nbsp;&nbsp;UNREAL&nbsp;&nbsp;UNREAL</div>
+ <title>Page de Chargement</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loader-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .rotating-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: center;
+      font-size: 24px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      color: white;
+      animation: rotate 2s linear infinite;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loader-container">
+    <div class="rotating-text">UNREAL</div>
   </div>
 
+</body>
+</html>
   <!-- Navigation Menu -->
   <nav>
     <div class="nav-container">
